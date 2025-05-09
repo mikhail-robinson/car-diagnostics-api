@@ -11,7 +11,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       "http://localhost:3000",
       "http://localhost:5173",
       "http://localhost:8080",
-      /\Ahttps:\/\/[a-z0-9-]+\.mikhailrobinsons-projects\.vercel\.app\z/ # Regex for Vercel preview/branch URLs
+      "https://vehicle-care-buddy.vercel.app/"
     )
 
     resource "*",
