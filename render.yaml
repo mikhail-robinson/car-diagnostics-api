@@ -31,6 +31,8 @@ services:
         fromDatabase:
           name: car-api-db
           property: database
+    healthCheckPath: /
+    autoDeploy: true
 
 databases:
   - name: car-api-db
