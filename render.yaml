@@ -15,8 +15,25 @@ services:
         value: production
       - key: RAILS_SERVE_STATIC_FILES
         value: "true"
+      - key: POSTGRES_HOST
+        fromDatabase:
+          name: car-api-db
+          property: host
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: car-api-db
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          name: car-api-db
+          property: password
+      - key: POSTGRES_DATABASE
+        fromDatabase:
+          name: car-api-db
+          property: database
 
 databases:
   - name: car-api-db
     databaseName: car_api_production
     user: car_api
+    plan: free
