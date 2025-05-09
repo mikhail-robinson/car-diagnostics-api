@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do
     resources :cars do
-      resources :service_history_entries, only: [:index, :create]
+      resources :service_history_entries, only: [ :index, :create ]
     end
-    resources :service_history_entries, only: [:show, :index]
+    resources :service_history_entries, only: [ :show, :index ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

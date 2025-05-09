@@ -24,5 +24,4 @@ class Api::ServiceHistoryEntriesController < ApplicationController
   def service_history_entry_params
     params.require(:service_history_entry).permit(:service_type, :notes, :serviced_at, :mileage)
   end
-
 end
