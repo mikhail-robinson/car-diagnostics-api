@@ -50,7 +50,14 @@ class CarTest < ActiveSupport::TestCase
     assert_equal "Ford", cars.last.make
   end
 
-  test "car can have service history entries" do
+  test "car can be edited" do
+    car = Car.new(plate: "ABC123", make: "Toyota", model: "Corolla", year: 2020)
+    car.save
+    car.update(make: "Ford")
+    assert_equal "Ford", car.make
+  end
+
+  test "car can have a service history entry" do
     car = Car.new(plate: "ABC123", make: "Toyota", model: "Corolla", year: 2020)
     car.save
     service_history = ServiceHistoryEntry.new(
