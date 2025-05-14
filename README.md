@@ -1,24 +1,72 @@
-# README
+# Car Diagnostics API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails API for managing car diagnostics and service history.
 
-Things you may want to cover:
+## Ruby Version
 
-* Ruby version
+This application uses Ruby 3.2.2 (as specified in `.ruby-version`).
 
-* System dependencies
+## System Dependencies
 
-* Configuration
+- Ruby 3.2.2
+- PostgreSQL
 
-* Database creation
+## Configuration
 
-* Database initialization
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   bundle install
+   ```
 
-* How to run the test suite
+## Database Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Create and setup the database:
+   ```bash
+   rails db:create
+   rails db:migrate
+   ```
 
-* Deployment instructions
+2. Seed the database (if needed):
+   ```bash
+   rails db:seed
+   ```
 
-* ...
+## Running the Application
+
+### Development
+
+Start the Rails server:
+```bash
+rails server
+```
+
+The API will be available at `http://localhost:3000`
+
+### Testing
+
+Run the test suite:
+```bash
+rails test
+```
+
+For specific test files:
+```bash
+rails test test/models/car_test.rb
+```
+
+## Deployment
+
+This application is currently deployed on Render
+
+## API Endpoints
+
+The API provides endpoints for:
+- Car management (create, read, update, delete)
+- Service history management
+- Diagnostic information
+
+## Development Tools
+
+- RuboCop for code style enforcement (`.rubocop.yml`)
+- GitHub Actions for CI/CD (`.github` directory)
