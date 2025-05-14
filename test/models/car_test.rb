@@ -6,32 +6,6 @@ class CarTest < ActiveSupport::TestCase
     assert car.save
   end
 
-  test "should not save car without plate" do
-    car = Car.new(plate: nil, make: "Toyota", model: "Corolla", year: 2020)
-    assert_not car.save, "Saved the car without a plate"
-  end
-
-  test "should not save car without make" do
-    car = Car.new(plate: "ABC123", make: nil, model: "Corolla", year: 2020)
-    assert_not car.save, "Saved the car without a make"
-  end
-
-  test "should not save car without model" do
-    car = Car.new(plate: "ABC123", make: "Toyota", model: nil, year: 2020)
-    assert_not car.save, "Saved the car without a model"
-  end
-
-  test "should not save car without year" do
-    car = Car.new(plate: "ABC123", make: "Toyota", model: "Corolla", year: nil)
-    assert_not car.save, "Saved the car without a year"
-  end
-
-  test "can delete car" do
-    car = Car.new(plate: "ABC123", make: "Toyota", model: "Corolla", year: 2020)
-    car.save
-    assert car.destroy
-  end
-
   test "can get car by plate" do
     car = Car.new(plate: "ABC123", make: "Toyota", model: "Corolla", year: 2020)
     car.save
@@ -55,6 +29,32 @@ class CarTest < ActiveSupport::TestCase
     car.save
     car.update(make: "Ford")
     assert_equal "Ford", car.make
+  end
+
+  test "can delete car" do
+    car = Car.new(plate: "ABC123", make: "Toyota", model: "Corolla", year: 2020)
+    car.save
+    assert car.destroy
+  end
+
+  test "should not save car without plate" do
+    car = Car.new(plate: nil, make: "Toyota", model: "Corolla", year: 2020)
+    assert_not car.save, "Saved the car without a plate"
+  end
+
+  test "should not save car without make" do
+    car = Car.new(plate: "ABC123", make: nil, model: "Corolla", year: 2020)
+    assert_not car.save, "Saved the car without a make"
+  end
+
+  test "should not save car without model" do
+    car = Car.new(plate: "ABC123", make: "Toyota", model: nil, year: 2020)
+    assert_not car.save, "Saved the car without a model"
+  end
+
+  test "should not save car without year" do
+    car = Car.new(plate: "ABC123", make: "Toyota", model: "Corolla", year: nil)
+    assert_not car.save, "Saved the car without a year"
   end
 
   test "car can have a service history entry" do
